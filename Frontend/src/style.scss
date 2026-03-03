@@ -1,0 +1,159 @@
+@use "./style/button.scss";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+    --bg-0: #f4f7fc;
+    --bg-1: #edf3fb;
+    --bg-2: #e5eef9;
+    --bg-3: #dce8f8;
+    --surface: #ffffff;
+    --surface-soft: #f6f9ff;
+    --surface-strong: #f0f5fd;
+    --line: #d2dfef;
+    --ink: #11233f;
+    --ink-soft: #4f6688;
+    --accent: #0e63d4;
+    --accent-soft: #0ca8a0;
+    --accent-strong: #0848af;
+    --danger: #d63b58;
+    --success: #209e6f;
+    --warning: #d98a17;
+    --radius-lg: 22px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+    --shadow-lg: 0 28px 60px rgba(17, 35, 63, 0.14);
+    --shadow-md: 0 14px 30px rgba(17, 35, 63, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --font-base: "Manrope", "Segoe UI", sans-serif;
+    --font-heading: "Space Grotesk", "Segoe UI", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    min-height: 100%;
+    width: 100%;
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    background:
+        radial-gradient(640px 360px at 5% -2%, rgba(14, 99, 212, 0.2), transparent 72%),
+        radial-gradient(780px 420px at 102% 6%, rgba(12, 168, 160, 0.17), transparent 70%),
+        radial-gradient(560px 420px at 50% 120%, rgba(71, 111, 221, 0.1), transparent 65%),
+        linear-gradient(165deg, var(--bg-0) 0%, var(--bg-1) 45%, var(--bg-2) 75%, var(--bg-3) 100%);
+    color: var(--ink);
+    font-family: var(--font-base);
+    line-height: 1.5;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.38) 1px, transparent 1px);
+    background-size: 2px 2px;
+    opacity: 0.45;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+    background-size: 52px 52px;
+    mask-image: radial-gradient(circle at 45% 12%, black 8%, transparent 74%);
+    pointer-events: none;
+}
+
+#root {
+    position: relative;
+    z-index: 1;
+}
+
+a {
+    color: #0b5cca;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+input,
+textarea,
+button {
+    font: inherit;
+}
+
+textarea,
+input {
+    border-radius: 12px;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #9bb4d7, #6f92c6);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.highlight {
+    color: #0b66dc;
+}
+
+.loading-screen {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1.5rem;
+
+    h1 {
+        font-size: clamp(1.1rem, 2.6vw, 1.55rem);
+        color: var(--ink-soft);
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.8rem 1.35rem;
+        box-shadow: var(--shadow-md);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

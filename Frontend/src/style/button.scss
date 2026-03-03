@@ -1,0 +1,55 @@
+.button {
+    border: 1px solid transparent;
+    outline: none;
+    padding: 0.7rem 1.15rem;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    font-family: var(--font-heading, "Space Grotesk", sans-serif);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    isolation: isolate;
+
+    &.primary-button {
+        background: linear-gradient(130deg, #0f6de6 0%, #0ba3c8 100%);
+        color: #f6fbff;
+        box-shadow: 0 12px 24px rgba(11, 100, 208, 0.3);
+    }
+
+    &.primary-button::before {
+        content: "";
+        position: absolute;
+        inset: 1px;
+        border-radius: inherit;
+        background: linear-gradient(150deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    &.secondary-button {
+        background: rgba(255, 255, 255, 0.86);
+        backdrop-filter: blur(8px);
+        border-color: #c9d8ed;
+        color: #243a59;
+        box-shadow: 0 6px 16px rgba(13, 33, 59, 0.09);
+    }
+
+    &:hover {
+        transform: translateY(-2px);
+        filter: saturate(1.06);
+    }
+
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 5px 10px rgba(13, 122, 255, 0.16);
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.62;
+        transform: none;
+        box-shadow: none;
+    }
+}

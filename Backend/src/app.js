@@ -1,0 +1,37 @@
+const express = require("express")
+const cookieParser = require("cookie-parser")
+const cors = require("cors")
+
+const app = express()
+
+function getAllowedOrigins() {
+    const originEnv = process.env.FRONTEND_ORIGINS
+    if (!originEnv) {
+        return [ "http://localhost:5173", "http://127.0.0.1:5173" ]
+    }
+
+    return originEnv
+        .split(",")
+        .map((origin) => origin.trim())
+        .filter(Boolean)
+}
+
+app.use(express.json())
+app.use(cookieParser())
+app.use(cors({
+    origin: getAllowedOrigins(),
+    credentials: true
+}))
+
+/* require all the routes here */
+const authRouter = require("./routes/auth.routes")
+const interviewRouter = require("./routes/interview.routes")
+
+
+/* using all the routes here */
+app.use("/api/auth", authRouter)
+app.use("/api/interview", interviewRouter)
+
+
+
+module.exports = app
