@@ -1,4 +1,6 @@
 # InterviewForge AI
+<img width="1918" height="978" alt="Screenshot 2026-03-11 181259" src="https://github.com/user-attachments/assets/2eeff4f5-f252-4999-8957-0ea007b9263e" />
+
 
 AI-powered interview preparation platform that helps candidates:
 - analyze job fit,
